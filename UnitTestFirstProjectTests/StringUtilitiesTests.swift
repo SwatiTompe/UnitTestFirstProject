@@ -1,5 +1,5 @@
 //
-//  UnitTestFirstProjectTests.swift
+//  StringUtilitiesTests.swift
 //  UnitTestFirstProjectTests
 //
 //  Created by Admin on 26/11/24.
@@ -8,28 +8,21 @@
 import XCTest
 @testable import UnitTestFirstProject
 
-final class UnitTestFirstProjectTests: XCTestCase {
-    
-    func testAddition() {
-        //Arrange
-        let a = 2
-        let b = 3
-        
-        //Act
-        let result = MathFunctions.add(a, b)
-        
-        //Assert
-        XCTAssertEqual(result, 5, "Expected 2 + 3 to equal 5")
+final class StringUtilitiesTests: XCTestCase {
 
+    func testReverse() {
+        let input = "hello"
+        let result = StringUtilities.reverse(input)
+        XCTAssertEqual(result, "olleh", "expected 'hello' to reverse to 'olleh'")
     }
     
-    func testSubtraction() {
-        let result = MathFunctions.subtract(5, 3)
-        XCTAssertEqual(result, 2, "Expected 5 - 3 to equal 2")
+    func testCapitalize() {
+        let input = "swift testing"
+        let result = StringUtilities.capitalize(input)
+        XCTAssertEqual(result, "Swift Testing", "expected 'swift testing' to be capitalized")
     }
     
     
-
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }

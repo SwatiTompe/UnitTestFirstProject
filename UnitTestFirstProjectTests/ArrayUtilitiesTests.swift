@@ -1,5 +1,5 @@
 //
-//  UnitTestFirstProjectTests.swift
+//  ArrayUtilitiesTests.swift
 //  UnitTestFirstProjectTests
 //
 //  Created by Admin on 26/11/24.
@@ -8,28 +8,27 @@
 import XCTest
 @testable import UnitTestFirstProject
 
-final class UnitTestFirstProjectTests: XCTestCase {
-    
-    func testAddition() {
-        //Arrange
-        let a = 2
-        let b = 3
-        
-        //Act
-        let result = MathFunctions.add(a, b)
-        
-        //Assert
-        XCTAssertEqual(result, 5, "Expected 2 + 3 to equal 5")
+final class ArrayUtilitiesTests: XCTestCase {
 
+    func testFindMax() {
+        let numbers = [3,5,7,2,9]
+        let result = ArrayUtilities.findMax(numbers)
+        XCTAssertEqual(result, 9, "expected max of [3,5,7,2,9] to be 9")
     }
     
-    func testSubtraction() {
-        let result = MathFunctions.subtract(5, 3)
-        XCTAssertEqual(result, 2, "Expected 5 - 3 to equal 2")
+    func testFineMin() {
+        let numbers = [3,5,7,2,9]
+        let result = ArrayUtilities.findMin(numbers)
+        XCTAssertEqual(result, 2, "expected min of [3,5,7,2,9]")
+    }
+    
+    func testEmptyArray() {
+        let numbers:[Int] = []
+        let result = ArrayUtilities.findMax(numbers)
+        XCTAssertNil(result, "Expected max of an empty array to be nil")
     }
     
     
-
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
