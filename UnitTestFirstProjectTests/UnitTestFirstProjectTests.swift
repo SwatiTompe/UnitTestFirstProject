@@ -10,16 +10,16 @@ import XCTest
 
 final class UnitTestFirstProjectTests: XCTestCase {
     
+    var x : Int!
+    var y : Int!
+    
     func testAddition() {
-        //Arrange
-        let a = 2
-        let b = 3
         
         //Act
-        let result = MathFunctions.add(a, b)
+        let result = MathFunctions.add(x, y)
         
         //Assert
-        XCTAssertEqual(result, 5, "Expected 2 + 3 to equal 5")
+        XCTAssertEqual(result, 50, "Expected x + y to equal 50")
 
     }
     
@@ -28,14 +28,37 @@ final class UnitTestFirstProjectTests: XCTestCase {
         XCTAssertEqual(result, 2, "Expected 5 - 3 to equal 2")
     }
     
+//    func testMultiplication() {
+//        
+//    }
     
+    
+    func testMultipleConditions() {
+        let result = MathFunctions.add(4, 6)
+        XCTAssertTrue(result > 5, "Result should be greater than 5")
+        XCTAssertFalse(result < 10, "result should not be less than 10")
+        XCTAssertEqual(result, 10, "expected 4 + 6 to equal 10")
+    }
+    
+    override func setUp() {
+        super.setUp()
+        x = 30
+        y = 20
+    }
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        try super.setUpWithError()
+        
+//        print("setting up resources that might fail")
+//        guard FileManager.default.fileExists(atPath: "Users/admin/Downloads/idine.zip") else {
+//            throw NSError(domain: "File does not exist SetupError", code: 1, userInfo: nil)
+//        }
     }
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+        x = nil
+        y = nil
     }
 
     func testExample() throws {

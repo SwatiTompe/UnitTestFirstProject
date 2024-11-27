@@ -6,9 +6,29 @@
 //
 
 import XCTest
+@testable import UnitTestFirstProject
 
 final class DivisionCalculatorTests: XCTestCase {
 
+    func testDivision() {
+        do {
+          let result = try DivisionCalculator.divideByZero(10, 2)
+            XCTAssertEqual(result, 5, "Expected 10/2 to equal 5")
+        } catch  {
+            XCTFail("unexpected error : \(error)")
+        }
+    }
+    
+    func testDivisionByZero() {
+        
+        XCTAssertThrowsError(try DivisionCalculator.divideByZero(10, 0), "expected division by zero to throw an error"){ error in
+            XCTAssertEqual(error as? MathError, MathError.divisionByZero, "Expected MathError.divisionByZero")
+        }
+        
+
+    }
+    
+    
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
